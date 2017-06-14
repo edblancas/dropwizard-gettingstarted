@@ -1,0 +1,6 @@
+logging:
+  level: INFO
+  loggers:
+    edblancas: DEBUG
+template: Hello, %s!
+defaultName: Stranger
