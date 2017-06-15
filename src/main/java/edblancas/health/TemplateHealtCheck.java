@@ -1,0 +1,24 @@
+package edblancas.health;
+
+import com.codahale.metrics.health.HealthCheck;
+import com.sun.org.apache.regexp.internal.RE;
+
+/**
+ * Created by dan on 15/06/17.
+ */
+public class TemplateHealtCheck extends HealthCheck {
+    private final String template;
+
+    public TemplateHealtCheck(String template) {
+        this.template = template;
+    }
+
+    @Override
+    protected Result check() throws Exception {
+        final String saying = String.format(template, "TEST");
+        if (!saying.contains("TEST")) {
+            return Result.unhealthy("template doesn't include a name");
+        }
+        return Result.healthy();
+    }
+}

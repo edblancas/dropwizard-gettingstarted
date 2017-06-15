@@ -13,6 +13,11 @@ public class GettingStartedConfiguration extends Configuration {
     private String defaultName = "Stranger";
 
     @JsonProperty
+    public String getTemplate() {
+        return template;
+    }
+
+    @JsonProperty
     public void setTemplate(String template) {
         this.template = template;
     }

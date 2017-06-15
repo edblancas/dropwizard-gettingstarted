@@ -1,5 +1,7 @@
 package edblancas;
 
+import edblancas.health.TemplateHealtCheck;
+import edblancas.resources.HelloWorldResource;
 import io.dropwizard.Application;
 import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
@@ -23,7 +25,13 @@ public class GettingStartedApplication extends Application<GettingStartedConfigu
     @Override
     public void run(final GettingStartedConfiguration configuration,
                     final Environment environment) {
-        // TODO: implement application
+        final HelloWorldResource resource = new HelloWorldResource(
+                configuration.getTemplate(),
+                configuration.getDefaultName()
+        );
+        final TemplateHealtCheck healtCheck = new TemplateHealtCheck(configuration.getTemplate());
+        environment.healthChecks().register("template", healtCheck);
+        environment.jersey().register(resource);
     }
 
 }
