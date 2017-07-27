@@ -4,7 +4,7 @@ logging:
     edblancas: DEBUG
 template: Hello, %s!
 defaultName: Stranger
-hbaseBundleConfiguration:
+hbase:
   zookeeperPort: 2181
   zookeeperQuorum: hbase-docker
   zookeeperZNode: /hbase

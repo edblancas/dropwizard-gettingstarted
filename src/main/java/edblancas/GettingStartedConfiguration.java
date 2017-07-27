@@ -12,7 +12,7 @@ public class GettingStartedConfiguration extends Configuration {
     @NotEmpty
     private String defaultName = "Stranger";
 
-    private HBaseBundleConfiguration hBaseBundleConfiguration;
+    private HBaseBundleConfiguration hbaseBundleConfiguration;
 
     @JsonProperty
     public String getTemplate() {
@@ -34,13 +34,13 @@ public class GettingStartedConfiguration extends Configuration {
         this.defaultName = name;
     }
 
-    @JsonProperty
+    @JsonProperty("hbase")
     public HBaseBundleConfiguration getHBaseBundleConfiguration() {
-        return hBaseBundleConfiguration;
+        return hbaseBundleConfiguration;
     }
 
     @JsonProperty
-    public void setHBaseBundleConfiguration(HBaseBundleConfiguration hBaseBundleConfiguration) {
-        this.hBaseBundleConfiguration = hBaseBundleConfiguration;
+    public void setHBaseBundleConfiguration(final HBaseBundleConfiguration hbaseBundleConfiguration) {
+        this.hbaseBundleConfiguration = hbaseBundleConfiguration;
     }
 }
